@@ -351,10 +351,10 @@
     }
 }
 
-- (void) visit:(CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform
+- (void) visit
 {
     [self updateVisibleRows];
-    [super visit:renderer parentTransform:parentTransform];
+    [super visit];
 }
 
 - (void) setRowHeight:(CGFloat)rowHeight

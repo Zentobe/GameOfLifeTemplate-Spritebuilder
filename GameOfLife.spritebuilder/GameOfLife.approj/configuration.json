@@ -1,7 +1,7 @@
 {
   "configuration_format_version": 2,
 
-   "default_target": {"project": "GameOfLife", "project_config": "Release", "target": "GameOfLife"},
+   "default_target": {"project": "GameofLife", "project_config": "Release", "target": "GameofLife"},
 
 
   // Dictionary of global configuration parameters.

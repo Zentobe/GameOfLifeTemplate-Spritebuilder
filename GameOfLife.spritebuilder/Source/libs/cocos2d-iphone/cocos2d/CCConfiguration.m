@@ -34,6 +34,7 @@
 #import "CCConfiguration.h"
 #import "ccMacros.h"
 #import "ccConfig.h"
+#import "Support/OpenGL_Internal.h"
 #import "cocos2d.h"
 
 @interface CCConfiguration ()
@@ -100,7 +101,13 @@ static char * glExtensions;
 		}
 	}
 
-	CC_CHECK_GL_ERROR_DEBUG();
+#if CC_ENABLE_GL_STATE_CACHE == 0
+	printf("\n");
+	NSLog(@"cocos2d: **** WARNING **** CC_ENABLE_GL_STATE_CACHE is disabled. To improve performance, enable it by editing ccConfig.h");
+	printf("\n");
+#endif
+
+	CHECK_GL_ERROR_DEBUG();
 
 	return self;
 }
@@ -268,7 +275,7 @@ static char * glExtensions;
 -(void) dumpInfo
 {
 #if DEBUG
-	printf("cocos2d: %s\n", [cocos2dVersion() UTF8String] );
+	printf("cocos2d: %s\n", cocos2d_version );
 
 #ifdef __CC_PLATFORM_IOS
 	NSString *OSVer = [[UIDevice currentDevice] systemVersion];
